@@ -22,7 +22,7 @@ Vagrant.configure(2) do |config|
   (1..3).each do |i|
     config.vm.define "node0#{i}" do |node|
       node.vm.box = "chef/centos-6.5"
-      node.vm.hostname  = "web0{i}"
+      node.vm.hostname  = "node0#{i}"
       node.vm.network :private_network, ip: "10.0.20.2#{i}"
       node.vm.network "forwarded_port", guest: 80, host:"808#{i}"
       node.vm.provider "virtualbox" do |vb|
